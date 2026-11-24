@@ -44,6 +44,13 @@ class Assessment(models.Model):
 
     end_time = models.DateTimeField()
 
+    thumbnail = models.ImageField(
+        upload_to="assessments/thumbnails/",
+
+        blank= True,
+        null=True
+     )
+
     is_published = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
