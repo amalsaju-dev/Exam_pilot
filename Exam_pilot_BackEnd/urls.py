@@ -23,6 +23,9 @@ from accounts.views import UserSignUpView
 
 from accounts.views import TrainerProfileView
 
+from assessment_management.views import AssessmentListCreateView
+from assessment_management.views import AssessmentRetrieveUpdateDeleteView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -30,9 +33,14 @@ urlpatterns = [
     path('sign/up/',UserSignUpView.as_view()),
 
     #retrieve
-    path('trainer/profile/',TrainerProfileView.as_view()),
+    path("trainer/profile/", TrainerProfileView.as_view()),
 
     #token
-
     path("token/",ObtainAuthToken.as_view()),
+
+    #ASSESSMENT
+
+    path("assessments/",AssessmentListCreateView.as_view()),
+
+    path("assessments/<int:pk>/",AssessmentRetrieveUpdateDeleteView.as_view()),
 ]
